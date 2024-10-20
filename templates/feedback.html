@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Feedback{% endblock title %}
+
+
+{% block body %}
+<h1 style="text-align:center; margin-top:20px; margin-bottom:50px; font-weight:bold">Your Feedback</h1>
+<div class="container" style="background:#000; padding-top:30px; padding-bottom:30px; padding-left:30px; padding-right:30px; margin-bottom:150px">
+    <form method="post" action="/feedback">
+      {% csrf_token %}
+          <label for="validationDefault01" class="form-label" style="color:#fff; font-size:25px">your name</label>
+          <input type="text" class="form-control" id="validationDefault01" name="name" required>
+       
+          <label for="validationDefaultUsername" class="form-label" style="color:#fff; font-size:25px">your email</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" name="email" required>
+          </div>
+
+            <label for="exampleFormControlTextarea1" class="form-label" style="color:#fff; font-size:25px">your feedback</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" required rows="3" cols="15" name="feedback" style="margin-bottom:10px"></textarea>
+
+         <center>
+            <input class="form-check-input my-4" type="checkbox" value="" id="invalidCheck2" required>
+            <label class="form-check-label" for="invalidCheck2" style="color:#fff; font-size:25px; margin-top:10px">
+              Agree to terms and conditions
+            </label>
+        </center>
+
+          <center><button class="btn btn-light" type="submit" style="margin-top:10px; font-size:20px; font-weight:bold">Submit</button></center>
+      </form>
+</div>
+{% endblock body %}

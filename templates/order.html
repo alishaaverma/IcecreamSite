@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock title %}
+
+
+{% block body %}
+<h1 style="text-align:center; margin-top:20px; margin-bottom:50px; font-weight:bold">Your Order</h1>
+<div class="container" style="background:#818080; padding-top:30px; padding-bottom:30px; padding-left:30px; padding-right:30px; margin-bottom:150px">
+    <form method="post" action="/order">
+      {% csrf_token %}
+          <label for="validationDefault01" class="form-label" style="color:black; font-size:20px">First name</label>
+          <input type="text" class="form-control" id="validationDefault01" name="first_name" required>
+
+          <label for="validationDefault02" class="form-label" style="color:black; font-size:20px">Last name</label>
+          <input type="text" class="form-control" id="validationDefault02" name="last_name" required>
+        
+          <label for="validationDefaultUsername" class="form-label" style="color:black; font-size:20px">email</label>
+          <div class="input-group">
+            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            <input type="email" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" name="email" required>
+          </div>
+        
+          <label for="validationDefault03" class="form-label" style="color:black; font-size:20px">Address</label>
+          <input type="text" class="form-control" id="validationDefault03" name="address" required>
+
+          <label for="validationDefault04" class="form-label" style="color:black; font-size:20px">order mode</label>
+          <select class="form-select" id="validationDefault04" name="state" required>
+            <option selected disabled value="">Choose...</option>
+            <option>on site</option>
+            <option>home delivery</option>
+          </select>
+
+          <label for="validationDefault05" class="form-label" style="color:black; font-size:20px">mobile number</label>
+          <input type="number" class="form-control" id="validationDefault05" name="mobile_number" required>
+
+            <label for="exampleFormControlTextarea1" class="form-label" style="color:black; font-size:20px">tell me about what you want to order...</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" required rows="3" cols="15" name="message" style="margin-bottom:10px"></textarea>
+
+         <center>
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+            <label class="form-check-label" for="invalidCheck2" style="color:black;">
+              Agree to terms and conditions
+            </label>
+        </center>
+
+          <center><button class="btn btn-dark" type="submit" style="margin-top:10px; font-size:20px">Submit</button></center>
+      </form>
+</div>
+{% endblock body %}
